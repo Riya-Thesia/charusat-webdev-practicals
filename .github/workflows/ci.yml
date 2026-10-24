@@ -1,0 +1,54 @@
+# Practical 12: Continuous Integration Pipeline with GitHub Actions
+# Course: ITUE301 Advanced Web Development Frameworks
+# Student: Riya Thesia (CHARUSAT)
+
+name: CI Pipeline
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-and-test:
+    name: Backend Test & Frontend Build Pipeline
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout Repository Code
+      - name: Checkout Repository Source Code
+        uses: actions/checkout@v4
+
+      # Step 2: Setup Node.js Environment
+      - name: Setup Node.js Runtime (v18.x)
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'npm'
+          cache-dependency-path: |
+            backend/package-lock.json
+            frontend/package-lock.json
+
+      # Step 3: Install Backend Dependencies
+      - name: Install Backend Dependencies
+        working-directory: ./backend
+        run: npm install
+
+      # Step 4: Run Automated Backend Tests via Jest & Supertest
+      - name: Run Backend Automated Integration Tests
+        working-directory: ./backend
+        env:
+          NODE_ENV: test
+          PORT: 5000
+        run: npm test
+
+      # Step 5: Install Frontend Dependencies
+      - name: Install Frontend Dependencies
+        working-directory: ./frontend
+        run: npm install
+
+      # Step 6: Validate Frontend Production Build
+      - name: Verify Frontend Production Build & Code Splitting
+        working-directory: ./frontend
+        run: npm run build

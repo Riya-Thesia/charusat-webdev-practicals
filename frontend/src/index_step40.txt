@@ -1,0 +1,208 @@
+Created At: 2026-10-06T18:07:55+05:30
+Completed At: 2026-10-06T18:07:55+05:30
+File Path: `file:///c:/Users/Riya/.gemini/antigravity-ide/scratch/charusat-webdev-practicals/frontend/src/index.css`
+Total Lines: 736
+Total Bytes: 14463
+Showing lines 1 to 200
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+1: 
+2: @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap');
+3: 
+4: :root {
+5:   --bg-primary: #0b0f19;
+6:   --bg-secondary: #111827;
+7:   --bg-card: rgba(17, 24, 39, 0.75);
+8:   --bg-glass: rgba(31, 41, 55, 0.45);
+9:   --text-primary: #f9fafb;
+10:   --text-secondary: #9ca3af;
+11:   --text-muted: #6b7280;
+12:   
+13:   --accent-primary: #f1c963;
+14:   --accent-secondary: #edc242;
+15:   --accent-hover: #19161f;
+16:   --accent-glow: rgba(99, 102, 241, 0.25);
+17:   
+18:   --success: #10b981;
+19:   --warning: #f59e0b;
+20:   --danger: #ef4444;
+21:   --info: #3b82f6;
+22: 
+23:   --border-color: rgba(255, 255, 255, 0.08);
+24:   --border-focus: rgba(177, 83, 59, 0.5);
+25:   --radius-sm: 8px;
+26:   --radius-md: 14px;
+27:   --radius-lg: 20px;
+28:   
+29:   --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.15);
+30:   --shadow-lg: 0 16px 32px rgba(0, 0, 0, 0.35);
+31:   
+32:   --font-main: 'Plus Jakarta Sans', sans-serif;
+33:   --font-heading: 'Outfit', sans-serif;
+34:   --font-code: 'Fira Code', monospace;
+35: }
+36: 
+37: [data-theme='light'] {
+38:   --bg-primary: #e5e1d8;
+39:   --bg-secondary: #eeeae1;
+40:   --bg-card: rgba(244, 240, 233, 0.92);
+41:   --bg-glass: rgba(232, 227, 218, 0.75);
+42:   --text-primary: #1e1b18;
+43:   --text-secondary: #5a544b;
+44:   --text-muted: #857d73;
+45: 
+46:   --accent-primary: #3d332a;
+47:   --accent-secondary: #8c674b;
+48:   --accent-hover: #be8f60;
+49:   --accent-glow: rgba(240, 193, 127, 0.958);
+50: 
+51:   --border-color: rgba(159, 116, 73, 0.12);
+52:   --shadow-sm: 0 4px 14px rgba(60, 50, 40, 0.05);
+53:   --shadow-lg: 0 16px 32px rgba(60, 50, 40, 0.1);
+54: }
+55: 
+56: * {
+57:   margin: 0;
+58:   padding: 0;
+59:   box-sizing: border-box;
+60: }
+61: 
+62: body {
+63:   background-color: var(--bg-primary);
+64:   color: var(--text-primary);
+65:   font-family: var(--font-main);
+66:   min-height: 100vh;
+67:   line-height: 1.6;
+68:   transition: background-color 0.3s ease, color 0.3s ease;
+69: }
+70: 
+71: /* Navbar */
+72: .navbar {
+73:   position: sticky;
+74:   top: 0;
+75:   z-index: 100;
+76:   background: var(--bg-card);
+77:   backdrop-filter: blur(16px);
+78:   -webkit-backdrop-filter: blur(16px);
+79:   border-bottom: 1px solid var(--border-color);
+80:   padding: 0.85rem 1.5rem;
+81: }
+82: 
+83: .nav-container {
+84:   max-width: 1200px;
+85:   margin: 0 auto;
+86:   display: flex;
+87:   align-items: center;
+88:   justify-content: space-between;
+89: }
+90: 
+91: .nav-brand {
+92:   display: flex;
+93:   align-items: center;
+94:   gap: 0.5rem;
+95:   text-decoration: none;
+96:   font-family: var(--font-heading);
+97:   font-weight: 700;
+98:   font-size: 1.25rem;
+99:   color: var(--text-primary);
+100: }
+101: 
+102: .nav-links {
+103:   display: flex;
+104:   align-items: center;
+105:   gap: 0.5rem;
+106: }
+107: 
+108: .nav-item {
+109:   display: flex;
+110:   align-items: center;
+111:   gap: 0.4rem;
+112:   padding: 0.5rem 0.85rem;
+113:   color: var(--text-secondary);
+114:   text-decoration: none;
+115:   font-weight: 500;
+116:   font-size: 0.9rem;
+117:   border-radius: var(--radius-sm);
+118:   transition: all 0.2s ease;
+119: }
+120: 
+121: .nav-item:hover, .nav-item.active {
+122:   color: var(--text-primary);
+123:   background: var(--bg-glass);
+124: }
+125: 
+126: .nav-item.active {
+127:   color: var(--accent-secondary);
+128:   border-bottom: 2px solid var(--accent-primary);
+129: }
+130: 
+131: .nav-actions {
+132:   display: flex;
+133:   align-items: center;
+134:   gap: 1rem;
+135: }
+136: 
+137: .theme-toggle-btn {
+138:   background: var(--bg-glass);
+139:   border: 1px solid var(--border-color);
+140:   color: var(--text-primary);
+141:   padding: 0.5rem;
+142:   border-radius: 50%;
+143:   cursor: pointer;
+144:   display: flex;
+145:   align-items: center;
+146:   justify-content: center;
+147:   transition: transform 0.2s ease;
+148: }
+149: 
+150: .theme-toggle-btn:hover {
+151:   transform: rotate(15deg) scale(1.05);
+152: }
+153: 
+154: .user-profile-badge {
+155:   display: flex;
+156:   align-items: center;
+157:   gap: 0.5rem;
+158:   background: var(--bg-glass);
+159:   border: 1px solid var(--border-color);
+160:   padding: 0.35rem 0.75rem;
+161:   border-radius: 20px;
+162:   font-size: 0.85rem;
+163: }
+164: 
+165: .btn-logout {
+166:   background: none;
+167:   border: none;
+168:   color: var(--danger);
+169:   cursor: pointer;
+170:   display: flex;
+171:   align-items: center;
+172: }
+173: 
+174: /* Page Containers */
+175: .page-container {
+176:   max-width: 1100px;
+177:   margin: 2rem auto;
+178:   padding: 0 1.5rem;
+179: }
+180: 
+181: .page-header {
+182:   margin-bottom: 2rem;
+183:   text-align: center;
+184: }
+185: 
+186: .page-title {
+187:   font-family: var(--font-heading);
+188:   font-size: 2rem;
+189:   font-weight: 700;
+190:   color: var(--text-primary);
+191: }
+192: 
+193: .page-subtitle {
+194:   color: var(--text-secondary);
+195:   font-size: 1rem;
+196:   margin-top: 0.5rem;
+197: }
+198: 
+199: /* Cards & Sections */
+200: .card-section {
+The above content does NOT show the entire file contents. If you need to view any lines of the file which were not shown to complete your task, call this tool again to view those lines.
