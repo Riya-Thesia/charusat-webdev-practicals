@@ -21,10 +21,10 @@ jobs:
         uses: actions/checkout@v4
 
       # Step 2: Setup Node.js Environment
-      - name: Setup Node.js Runtime (v18.x)
+      - name: Setup Node.js Runtime (v20.x)
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
           cache: 'npm'
           cache-dependency-path: |
             backend/package-lock.json
